@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUMINA | Digital Luxury Products</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'geist';
+            src: url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+        }
+        @font-face {
+            font-family: 'jetbrainsMono';
+            src: url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap');
+        }
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+            font-family: 'geist', sans-serif;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(184, 195, 255, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(76, 215, 246, 0.1);
+        }
+        .rim-light {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(184, 195, 255, 0.05) 0%, rgba(5, 5, 5, 0) 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#d0bcff",
+                    "inverse-surface": "#e5e2e1",
+                    "primary-fixed": "#dde1ff",
+                    "surface": "#131313",
+                    "tertiary-container": "#00788c",
+                    "on-secondary": "#3c0091",
+                    "tertiary-fixed-dim": "#4cd7f6",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "primary": "#b8c3ff",
+                    "on-primary-container": "#efefff",
+                    "on-primary": "#002388",
+                    "outline": "#8e90a2",
+                    "inverse-primary": "#124af0",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#001356",
+                    "primary-fixed-dim": "#b8c3ff",
+                    "on-error-container": "#ffdad6",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed": "#acedff",
+                    "error-container": "#93000a",
+                    "secondary-container": "#571bc1",
+                    "surface-bright": "#3a3939",
+                    "surface-tint": "#b8c3ff",
+                    "on-secondary-container": "#c4abff",
+                    "outline-variant": "#434656",
+                    "on-tertiary": "#003640",
+                    "surface-container-lowest": "#0e0e0e",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed-variant": "#0035be",
+                    "surface-container-high": "#2a2a2a",
+                    "background": "#131313",
+                    "on-tertiary-container": "#d7f6ff",
+                    "surface-container": "#201f1f",
+                    "on-secondary-fixed": "#23005c",
+                    "tertiary": "#4cd7f6",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "on-tertiary-fixed": "#001f26",
+                    "surface-container-highest": "#353534",
+                    "secondary-fixed": "#e9ddff",
+                    "on-background": "#e5e2e1",
+                    "inverse-on-surface": "#313030",
+                    "on-surface-variant": "#c4c5d9",
+                    "surface-variant": "#353534",
+                    "primary-container": "#2e5bff",
+                    "surface-container-low": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "section-gap": "80px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "margin-desktop": "48px"
+            },
+            "fontFamily": {
+                    "display-lg": ["geist"],
+                    "body-lg": ["geist"],
+                    "label-md": ["jetbrainsMono"],
+                    "body-sm": ["geist"],
+                    "headline-lg": ["geist"],
+                    "display-lg-mobile": ["geist"],
+                    "headline-md": ["geist"],
+                    "body-md": ["geist"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "300"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface/40 backdrop-blur-md border-b border-white/10 shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary scale-95 active:scale-90 transition-transform cursor-pointer">menu</span>
+<span class="font-display-lg text-headline-md tracking-widest text-on-surface uppercase">LUMINA</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary transition-colors duration-300" href="#">Collection</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Studio</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Archives</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors duration-300 cursor-pointer">shopping_bag</span>
+<span class="material-symbols-outlined text-primary scale-95 active:scale-90 transition-transform cursor-pointer">account_circle</span>
+</div>
+</nav>
+<!-- Hero / Header Section -->
+<header class="relative pt-32 pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="ambient-glow -top-20 -left-20"></div>
+<div class="ambient-glow -bottom-40 right-0 opacity-40"></div>
+<div class="max-w-3xl">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">
+                Precision <span class="text-primary italic">Aesthetics</span> for the Digital Vanguard.
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                A curated ecosystem of technical hardware and optical enhancements designed for those who navigate the intersection of luxury and high-performance.
+            </p>
+</div>
+<!-- Floating Search & Categories -->
+<div class="flex flex-col md:flex-row items-center gap-gutter">
+<div class="relative w-full md:w-[400px] group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-body-md group-focus-within:text-primary transition-colors">search</span>
+</div>
+<input class="w-full bg-surface-container-low border border-white/10 rounded-full py-4 pl-12 pr-6 font-label-md text-label-md focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all placeholder:text-outline-variant" placeholder="Find an artifact..." type="text"/>
+</div>
+<div class="flex gap-3 overflow-x-auto pb-2 w-full no-scrollbar">
+<button class="px-6 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary font-label-md text-label-md whitespace-nowrap">All Items</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high/50 border border-white/5 text-on-surface-variant hover:border-white/20 transition-all font-label-md text-label-md whitespace-nowrap">Wearables</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high/50 border border-white/5 text-on-surface-variant hover:border-white/20 transition-all font-label-md text-label-md whitespace-nowrap">Optics</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high/50 border border-white/5 text-on-surface-variant hover:border-white/20 transition-all font-label-md text-label-md whitespace-nowrap">Sound</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high/50 border border-white/5 text-on-surface-variant hover:border-white/20 transition-all font-label-md text-label-md whitespace-nowrap">Neural</button>
+</div>
+</div>
+</header>
+<!-- Product Grid -->
+<main class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto pb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product 1 -->
+<div class="glass-card rim-light rounded-xl overflow-hidden flex flex-col group/card">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" data-alt="Close-up of high-end minimalist titanium eyewear with dark tinted lenses. The product is displayed in a moody, cinematic studio setting with deep matte black shadows and a single sharp cyan rim light reflecting off the metallic frame. The overall aesthetic is ultra-modern, professional, and evokes a sense of high-performance digital luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNobQCSm8TMO3UF2CzLCmWTe5rhwOiY3U9_vQs4TNLa2zq0N_vQhdaTUWHEYY1sonIixqwSUvufUarakcIcJpWFYtU6ALWj2PUH-fCgjezaTmxYxh6ek43dgN2HGPvoVYyy81U3Qn9Jh4fyH-p4X3VufS3GzMb8ruhkiDbGQvUnJT1vAGRiP1-bvmL_S0iWo2sf9Xs0UthvyC0XnmTwiNrcddwmZiDGCCNX_5tUiXFHbieNFc98iTz1PlW3JUjPGyZKQbTI87lCw"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-primary/20 backdrop-blur-md border border-primary/30 rounded-full">
+<span class="font-label-md text-label-md text-primary">New Release</span>
+</div>
+</div>
+<div class="p-8 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Vector Optics X1</h3>
+<p class="font-label-md text-label-md text-outline">Modular Vision Enhancement</p>
+</div>
+<span class="font-label-md text-label-md text-primary">$1,250</span>
+</div>
+<div class="h-px bg-white/5 w-full"></div>
+<div class="flex justify-between items-center mt-2">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">add_shopping_cart</button>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="glass-card rim-light rounded-xl overflow-hidden flex flex-col group/card lg:mt-12">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" data-alt="Professional grade matte black over-ear headphones featuring brushed aluminum accents. The device is suspended in a dark, atmospheric space with soft violet ambient glows and minimal white lighting that highlights the ergonomic texture of the ear cushions. The style is sophisticated, clean, and futuristic, following a corporate modern glassmorphism vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1E6D7Ht1-RuCKVwSXw8sxHirhvyw5K2Ht0PIxrwyGqx0GiBy_6gpE7g4LEKu5IBgkcwimW5TybDaW_ieKtEXwOYMHJ8wiZ1w4_G6LjqNWg2TN9RhQDtKrxKZdNL6g2EGuMKb4ImccA-K4HX29orlr5VVDK4YNr4fHKWixCj95rsM2GMgWtceUlU6Dm0IYmoqjfzJ2oeqaUwZJ53qkNVjk6Bx9riajXC_3HGE_zb46XZET6sx9Zp2ARnGtxkZ4VP06OW8Kj3K6XA"/>
+</div>
+<div class="p-8 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Aura Sound P2</h3>
+<p class="font-label-md text-label-md text-outline">Spatial Audio Engine</p>
+</div>
+<span class="font-label-md text-label-md text-primary">$890</span>
+</div>
+<div class="h-px bg-white/5 w-full"></div>
+<div class="flex justify-between items-center mt-2">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-surface-bright border border-white/20"></div>
+<div class="w-3 h-3 rounded-full bg-primary-fixed-dim"></div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">add_shopping_cart</button>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="glass-card rim-light rounded-xl overflow-hidden flex flex-col group/card">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" data-alt="A sleek, ultra-thin ceramic smart watch with a seamless circular display showing generative abstract data visualizations in electric blue. The watch sits on a dark reflective surface with a subtle teal radial aura in the background. The lighting is low-key, focusing on the sharp edges and the vibrant luminosity of the digital display." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYuogL1voUkFPemnIzRy-_vucky81na_TgUDPYx_B-_7544pRCKJnMUl-_m6BtzK9wxqfNhHOf1O2bOlQy7rjo9xwNVD54CXe1HxWezWh97IdrsNugskrclENSKIdlTvzxQL9y89BZ19dimgByAjntThd83JjGMaCzf5YeGY05dj_cb0u6yhmoGlsFOv98TTGLnwdohdoXhRBoK9Sz3TdIOzmYYm-Qo17V9DbuUz_hURvbTrcUEVngckYNZh8C8-s6fipl70cYQw"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-tertiary/20 backdrop-blur-md border border-tertiary/30 rounded-full">
+<span class="font-label-md text-label-md text-tertiary">Limited</span>
+</div>
+</div>
+<div class="p-8 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Chronos Core</h3>
+<p class="font-label-md text-label-md text-outline">Biometric Sync Wearable</p>
+</div>
+<span class="font-label-md text-label-md text-primary">$2,400</span>
+</div>
+<div class="h-px bg-white/5 w-full"></div>
+<div class="flex justify-between items-center mt-2">
+<div class="flex gap-2 text-label-md font-label-md text-tertiary">
+                            Edition: 04/50
+                        </div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">add_shopping_cart</button>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="glass-card rim-light rounded-xl overflow-hidden flex flex-col group/card">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" data-alt="Avant-garde designer sunglasses featuring a futuristic wrap-around iridescent lens and carbon fiber frame. The product is captured with high-fidelity detail in a minimalist white-lit environment that creates a clean, luxury catalog aesthetic. Subtle electric blue highlights shimmer across the lens surface, suggesting advanced optical technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClcGRdGl0Z2ckxLAAjgGnHZBHe-qAkElC5nx9XRD0tVUf1QlazCwZvd4OlywccD-WuN-kKHENm2_OJK2aw4vzqRDwfT3jHWc9-77Dyw4GJaa75d-bvK3OFZiJIo14HZomYV_lwKM3C3HQdp4ggmF13m7oCJqeBdkV_9MGmvu03RrCE3nXatBgdXdgaccUmnh-qx5TsxPFvMjpPzEwgFDeivFJuqQwzFvoLuDlvXTCj5krrtVAVj99p4RvHUsRNIcN_XFLMGDp8DQ"/>
+</div>
+<div class="p-8 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Spectral S1</h3>
+<p class="font-label-md text-label-md text-outline">Light Filter Array</p>
+</div>
+<span class="font-label-md text-label-md text-primary">$650</span>
+</div>
+<div class="h-px bg-white/5 w-full"></div>
+<div class="flex justify-between items-center mt-2">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-outline"></div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">add_shopping_cart</button>
+</div>
+</div>
+</div>
+<!-- Product 5 (Asymmetric Offset) -->
+<div class="glass-card rim-light rounded-xl overflow-hidden flex flex-col group/card lg:mt-12">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" data-alt="Minimalist wireless earbuds in a translucent frosted glass charging case. The case emits a soft internal violet glow, illuminating the sleek technical components inside. The product is staged on a deep charcoal matte platform with cinematic top-down lighting that creates sharp, elegant shadows. The mood is quiet, powerful, and technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2T-Pt1FoUx5cfHyhjbsUVYqfow2H9EhxaauwhEyUTy8vdt_BOsgMH_3iXrgG8efE7CVVmriTp_14CelZxXUJHZTn54hvKbTOFLLq4iEEg-qH20jN21Tq6BjcGs_LSYMSTbduM3VnqHrlXxxge9aVXsJwiBH67K0v3Q4miLvw9DWzApInDSkPaHgeimLSL_LQLiMDYpvItvpBoXTwm3hWWmXHrNn0AXInP5QbKdG8wu2q_PcCNjyKASJtNUGCFehvzEVrsjJ227g"/>
+</div>
+<div class="p-8 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Pulse Buds 3</h3>
+<p class="font-label-md text-label-md text-outline">Neural Audio Interface</p>
+</div>
+<span class="font-label-md text-label-md text-primary">$420</span>
+</div>
+<div class="h-px bg-white/5 w-full"></div>
+<div class="flex justify-between items-center mt-2">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<div class="w-3 h-3 rounded-full bg-primary-fixed"></div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">add_shopping_cart</button>
+</div>
+</div>
+</div>
+<!-- Product 6 -->
+<div class="glass-card rim-light rounded-xl overflow-hidden flex flex-col group/card">
+<div class="relative aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" data-alt="High-concept mobile device with an edge-to-edge liquid crystal display showing a deep space nebula wallpaper. The hardware features a titanium chassis with microscopic technical engravings along the side. The scene is illuminated by a soft cyan ambient glow from beneath the device, emphasizing its slim profile and premium construction in a dark luxury setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgjpsPyvmh54JJLvzXDH8w-kbdGrt-gh1ggNDfAe5rUtxoDKj804IFah9p7qu8RKl77CIYCvXYKB79ca5t0OebLjAWNkZ6d_yncRQz7qRgRyNdc1ZG8pAu6oSGm0iA_017Sk0C1wMxabs-PpK4zwMWpSl9y2d4t2yX2Yl4IUZoplr-fJYAxl3HDOVct8UfWbu88gHlkEMW5Iyenpe0ErCZQEcdxtHpjqmyRoC-1PT45-4Jfp2EwnEa16F5SME5os82UXHn6_JSuw"/>
+</div>
+<div class="p-8 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Lumina Handheld</h3>
+<p class="font-label-md text-label-md text-outline">Personal Intelligence Hub</p>
+</div>
+<span class="font-label-md text-label-md text-primary">$3,200</span>
+</div>
+<div class="h-px bg-white/5 w-full"></div>
+<div class="flex justify-between items-center mt-2">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-on-surface"></div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">add_shopping_cart</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex justify-between items-center w-[92%] max-w-md bg-surface-container-highest/60 backdrop-blur-2xl border border-white/10 rounded-full px-8 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.5)] md:hidden">
+<div class="flex flex-col items-center justify-center text-outline transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-primary relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary after:rounded-full">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-md text-label-md">Shop</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:text-primary transition-all active:scale-95">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Stats</span>
+</div>
+<div class="flex flex-col items-center justify-center text-outline hover:text-primary transition-all active:scale-95">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label-md text-label-md">Cart</span>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full py-section-gap border-t border-outline-variant bg-surface-container-lowest px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-base">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<span class="font-display-lg text-headline-md text-on-surface">LUMINA</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80">© 2024 LUMINA LUXURY. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex gap-8 mt-6 md:mt-0">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-opacity" href="#">Privacy</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-opacity" href="#">Terms</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-opacity" href="#">Concierge</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-opacity" href="#">Heritage</a>
+</div>
+</div>
+</footer>
+<script>
+        // Subtle mouse tracking for ambient glow
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.ambient-glow');
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            // Smoothed movement for the first glow
+            glow.style.transform = `translate(${x/50}px, ${y/50}px)`;
+        });
+
+        // Add subtle interaction sounds or vibration for mobile haptics
+        const buttons = document.querySelectorAll('button, a');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (window.navigator.vibrate) {
+                    window.navigator.vibrate(5);
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUMINA | The Future of Luxury</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        @font-face {
+            font-family: 'geist';
+            src: url('https://fonts.cdnfonts.com/s/93132/Geist-Regular.woff') format('woff');
+        }
+        @font-face {
+            font-family: 'geist';
+            font-weight: 700;
+            src: url('https://fonts.cdnfonts.com/s/93132/Geist-Bold.woff') format('woff');
+        }
+        
+        body {
+            background-color: #050505;
+            color: #e5e2e1;
+            font-family: 'geist', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .rim-light {
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .neon-glow-blue {
+            filter: drop-shadow(0 0 15px rgba(184, 195, 255, 0.3));
+        }
+
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(184, 195, 255, 0.08) 0%, rgba(76, 215, 246, 0.05) 50%, transparent 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #b8c3ff;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#d0bcff",
+                    "inverse-surface": "#e5e2e1",
+                    "primary-fixed": "#dde1ff",
+                    "surface": "#131313",
+                    "tertiary-container": "#00788c",
+                    "on-secondary": "#3c0091",
+                    "tertiary-fixed-dim": "#4cd7f6",
+                    "secondary-fixed-dim": "#d0bcff",
+                    "primary": "#b8c3ff",
+                    "on-primary-container": "#efefff",
+                    "on-primary": "#002388",
+                    "outline": "#8e90a2",
+                    "inverse-primary": "#124af0",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#001356",
+                    "primary-fixed-dim": "#b8c3ff",
+                    "on-error-container": "#ffdad6",
+                    "on-surface": "#e5e2e1",
+                    "on-tertiary-fixed-variant": "#004e5c",
+                    "surface-dim": "#131313",
+                    "tertiary-fixed": "#acedff",
+                    "error-container": "#93000a",
+                    "secondary-container": "#571bc1",
+                    "surface-bright": "#3a3939",
+                    "surface-tint": "#b8c3ff",
+                    "on-secondary-container": "#c4abff",
+                    "outline-variant": "#434656",
+                    "on-tertiary": "#003640",
+                    "surface-container-lowest": "#0e0e0e",
+                    "error": "#ffb4ab",
+                    "on-primary-fixed-variant": "#0035be",
+                    "surface-container-high": "#2a2a2a",
+                    "background": "#131313",
+                    "on-tertiary-container": "#d7f6ff",
+                    "surface-container": "#201f1f",
+                    "on-secondary-fixed": "#23005c",
+                    "tertiary": "#4cd7f6",
+                    "on-secondary-fixed-variant": "#5516be",
+                    "on-tertiary-fixed": "#001f26",
+                    "surface-container-highest": "#353534",
+                    "secondary-fixed": "#e9ddff",
+                    "on-background": "#e5e2e1",
+                    "inverse-on-surface": "#313030",
+                    "on-surface-variant": "#c4c5d9",
+                    "surface-variant": "#353534",
+                    "primary-container": "#2e5bff",
+                    "surface-container-low": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "base": "8px",
+                    "section-gap": "80px",
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "margin-desktop": "48px"
+            },
+            "fontFamily": {
+                    "display-lg": ["geist"],
+                    "body-lg": ["geist"],
+                    "label-md": ["jetbrainsMono"],
+                    "body-sm": ["geist"],
+                    "headline-lg": ["geist"],
+                    "display-lg-mobile": ["geist"],
+                    "headline-md": ["geist"],
+                    "body-md": ["geist"],
+                    "jetbrainsMono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "300"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+<!-- Navigation Shell (TopAppBar) -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface/40 backdrop-blur-md border-b border-white/10 backdrop-filter shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary scale-95 active:scale-90 transition-transform cursor-pointer">menu</span>
+<h1 class="font-display-lg text-headline-md tracking-widest text-on-surface uppercase">LUMINA</h1>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-label-md text-primary transition-colors duration-300" href="#">HOME</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">SHOP</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">HERITAGE</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">CONCIERGE</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary scale-95 active:scale-90 transition-transform cursor-pointer">shopping_bag</span>
+<span class="material-symbols-outlined text-primary scale-95 active:scale-90 transition-transform cursor-pointer">account_circle</span>
+</div>
+</nav>
+<main class="relative pt-24 overflow-hidden">
+<!-- Background Ambient Glows -->
+<div class="ambient-glow top-[10%] -left-[10%]"></div>
+<div class="ambient-glow bottom-[20%] -right-[10%]" style="background: radial-gradient(circle, rgba(208, 188, 255, 0.08) 0%, transparent 100%);"></div>
+<!-- Hero Section -->
+<section class="relative min-h-[795px] flex flex-col items-center justify-center px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="max-w-container-max w-full grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-7 z-10 space-y-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-md text-label-md text-primary tracking-widest uppercase">Limited Edition Release</span>
+</div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg">
+                        THE FUTURE <br/> OF <span class="text-primary italic">LUXURY</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        A seamless fusion of artisanal craftsmanship and hyper-technical precision. Redefining the boundaries of high-end horology for the digital age.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="px-8 py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-on-primary font-label-md text-label-md tracking-widest uppercase shadow-[0_0_20px_rgba(184,195,255,0.3)] hover:shadow-[0_0_30px_rgba(184,195,255,0.5)] transition-all active:scale-95">
+                            Pre-Order Now
+                        </button>
+<button class="px-8 py-4 rounded-full glass-card text-on-surface font-label-md text-label-md tracking-widest uppercase border border-white/10 hover:bg-white/10 transition-all active:scale-95">
+                            View Collection
+                        </button>
+</div>
+</div>
+<div class="md:col-span-5 relative mt-12 md:mt-0">
+<div class="relative w-full aspect-square group">
+<!-- Floating Glass CTA -->
+<div class="absolute -top-4 -right-4 z-20 glass-card p-4 rounded-2xl rim-light animate-bounce" style="animation-duration: 4s;">
+<p class="font-label-md text-label-md text-primary">PRECISION</p>
+<p class="font-headline-md text-headline-md">99.9%</p>
+</div>
+<div class="absolute -bottom-8 -left-8 z-20 glass-card p-6 rounded-2xl rim-light hidden md:block">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Current Demand</p>
+<div class="w-32 h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[85%]"></div>
+</div>
+</div>
+<!-- Product Showcase -->
+<div class="w-full h-full relative rounded-3xl overflow-hidden glass-card rim-light p-4 flex items-center justify-center">
+<img alt="Lumina Chronograph" class="w-full h-full object-cover rounded-2xl transition-transform duration-700 group-hover:scale-110" data-alt="A macro close-up of a high-end futuristic titanium wristwatch with a glowing blue digital holographic interface embedded in the sapphire glass. The watch features intricate mechanical gears visible through a transparent casing, set against a dark matte background with subtle electric blue ambient lighting. Professional commercial photography, cinematic lighting, ultra-detailed textures, luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2y6jivBQQ_cy3uRA2YwXnOyJNxlTsBETYD7jcRp8xXwZETk1Wc4QidhSjeRPlz7Mccw1A2WpNEbcwvyIKrGFL6pHgZmOCiMotPNWp1OlkUV8OpkEGgarR6T33OVmreYeOf7p_0dgpfTtyyjuQDsWOq6GPfMh0jVM6xD_nem3j_UM0yPzi2iItg_eqd6UqgZRpH9aQiC9hzoxRjyxq_mmksxt-f-jm--Z-ocL_HyXJC3wpUFoEpyjiCwBmSUdf7phzKahHuN9-dg"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Statistics Bento Grid -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="glass-card p-8 rounded-3xl rim-light flex flex-col justify-between min-h-[200px] hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">verified</span>
+<div>
+<p class="font-display-lg text-headline-lg text-primary">125+</p>
+<p class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Design Patents</p>
+</div>
+</div>
+<div class="glass-card p-8 rounded-3xl rim-light flex flex-col justify-between min-h-[200px] md:col-span-2 hover:bg-white/5 transition-colors group">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">public</span>
+<div class="text-right">
+<span class="font-label-md text-label-md bg-secondary/20 text-secondary px-2 py-1 rounded">GLOBAL</span>
+</div>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-display-lg text-headline-lg">Global Reach</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Available in 42 premium boutiques worldwide.</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</div>
+</div>
+<div class="glass-card p-8 rounded-3xl rim-light flex flex-col justify-between min-h-[200px] hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-4">eco</span>
+<div>
+<p class="font-display-lg text-headline-lg text-tertiary">100%</p>
+<p class="font-label-md text-label-md uppercase tracking-widest text-on-surface-variant">Recycled Titanium</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products Carousel -->
+<section class="py-section-gap bg-surface-container-lowest/50 relative">
+<div class="px-margin-mobile md:px-margin-desktop mb-12 flex justify-between items-end max-w-container-max mx-auto">
+<div>
+<h3 class="font-headline-lg text-headline-lg mb-2 uppercase tracking-tighter">The Essentials</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Curated for the modern connoisseur.</p>
+</div>
+<div class="flex gap-2">
+<button class="p-4 rounded-full glass-card hover:bg-white/10 transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-4 rounded-full glass-card hover:bg-white/10 transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="flex overflow-x-auto gap-gutter px-margin-mobile md:px-margin-desktop pb-12 custom-scrollbar no-scrollbar">
+<!-- Product Card 1 -->
+<div class="flex-shrink-0 w-80 group">
+<div class="glass-card rounded-3xl rim-light overflow-hidden mb-6 aspect-[4/5] relative">
+<img alt="Lumina Core" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A minimalist luxury smart gadget with a sleek metallic silver finish and a circular glowing light-ring indicator. The device is placed on a polished black marble surface with sharp reflections and deep shadows. Moody, high-contrast digital luxury aesthetic, electric blue neon highlights, sharp focus, hyper-realistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_bKfyArAVFvKFL9Mh2iqK6A8NYlfIKr-hDBK3xP-et0XWZshRmTCgPW1n0UEwZ8iKkF47IjcrCNpPOfIWFZBWaMUnmTwi9oy0PjLWZEXWiFDD157YXmQ-_0XhWU1XTRkZfIffqlYnprr-iqDGLwVe0RcQAOI-v2f1d-0qTXhQ-OE53PUgVb6l_gXF5r-Yaag70o8gnmdGPqfvGky2G8mLIAcuohowz2aM1SL3t6UrwScJavWE10EWLrXF36MGIcRBXWlKEIzNrg"/>
+<div class="absolute top-4 right-4">
+<button class="p-2 rounded-full bg-background/80 backdrop-blur-md hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-sm">favorite</span>
+</button>
+</div>
+</div>
+<div class="space-y-1">
+<p class="font-label-md text-label-md text-primary tracking-widest">ACCESSORIES</p>
+<h4 class="font-headline-md text-headline-md">Lumina Core v.1</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">$2,450.00</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="flex-shrink-0 w-80 group">
+<div class="glass-card rounded-3xl rim-light overflow-hidden mb-6 aspect-[4/5] relative">
+<img alt="Eclipse Chrono" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A detailed view of a premium black metallic luxury watch with gold-etched details and a complex mechanical face. The watch is presented on a minimalist platform with soft blue ambient volumetric lighting casting long shadows. Luxurious, elegant, corporate modern style with glassmorphism elements, high-resolution rendering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0csJvyNduaDr8FvNQNim2hDDhvKOrWnZ2-oUHLDUV3xSgQL9tjfa-C7Q3o2ywJD8T0cTYIwUkS1nK9AUVh1XJCqca7bAf3d0c7clM4n8GB9xGXHD5j-2PKKdIYQ33DwLXT1Sdbul7OACqHDd7X0Y7mR9D2GS39CaGBG92yyAQs2hlaJClqtQqaBbFf0sS6wz08zq0paP8pQehhbstSW5nXHMB04lO6RQbEc_pxtFFRjM82Lu4ca_-Md5z3_jKkWPnx22-gSvzVA"/>
+<div class="absolute top-4 right-4">
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md">NEW</span>
+</div>
+</div>
+<div class="space-y-1">
+<p class="font-label-md text-label-md text-primary tracking-widest">HOROLOGY</p>
+<h4 class="font-headline-md text-headline-md">Eclipse Chronograph</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">$8,900.00</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="flex-shrink-0 w-80 group">
+<div class="glass-card rounded-3xl rim-light overflow-hidden mb-6 aspect-[4/5] relative">
+<img alt="Sonic Air" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A futuristic wireless earpiece case made of translucent high-tech material with visible internal fiber optics glowing in soft cyan. The product floats in a void with subtle light leaks and glass-like reflections. High-tech minimal digital luxury, soft glow aura, professional studio product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQxKCoJDMW5-1Tfobr0EdFqymJIcu2VY3bg-6mlWIhnw7nWjswWYpCOSx1_f76M5nhPn6OOau8ak5rCUeVhiKDH8VkmiR33whLTYYEOQJmZieCgVi1spjjzQZEi997eRSVh0dJHjv-zadXX8O-pUJXEyu0UsEk3ZLeenOxbI8XEGvWyh53AqUN4TbJhBV7rXlqcvZNx2949MfQqvP39KsUmkuJ4akHdKI8YuOfyE6CuvnSa8mSoXqIEaROupl2JIl4xtzkrwKtuw"/>
+</div>
+<div class="space-y-1">
+<p class="font-label-md text-label-md text-primary tracking-widest">AUDIO</p>
+<h4 class="font-headline-md text-headline-md">Sonic Air Pro</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">$1,100.00</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="flex-shrink-0 w-80 group">
+<div class="glass-card rounded-3xl rim-light overflow-hidden mb-6 aspect-[4/5] relative">
+<img alt="Vision Carbon" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A luxury carbon-fiber eyewear design with mirrored iridescent lenses reflecting a futuristic city skyline at dusk. The glasses are presented against a matte deep black background with a thin electric blue rim light. Digital luxury, sophisticated tech-wear aesthetic, ultra-sharp detail, high-fashion photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0sHGUeimscbROLTFM7MHssHS34Q3N0maFQIXBUI-tGIRqmtcKlXCNiNV_u6SvwagrhDrB64sgeSv2SpDegTCU59-5rEdX7QWel9HGUCDm10eFLQVmpdJZAQJCwwtlqX0k-LxTx1b7LQj1gNvXamcdScVAmzcnSEg0y_wHbNHVwmsn1RK0H-KzuX5t1EP03fLajLMGgYalXBLC-6Mcbqc8YAigNPHmgMp6VNUZwPkOWs17D8wl7SIKdedj7LF0XOEXoemujsXM3Q"/>
+</div>
+<div class="space-y-1">
+<p class="font-label-md text-label-md text-primary tracking-widest">VISION</p>
+<h4 class="font-headline-md text-headline-md">Vision Carbon X</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">$3,200.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Subscription -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="max-w-4xl mx-auto glass-card rounded-[40px] p-12 text-center rim-light relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 pointer-events-none"></div>
+<h3 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-headline-lg mb-6 uppercase">Join the Inner Circle</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg mx-auto">Receive exclusive access to private launches, bespoke customization options, and the Lumina Heritage magazine.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+<input class="flex-1 bg-surface-container-low border border-outline-variant rounded-full px-8 py-4 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-on-surface font-label-md text-label-md placeholder:text-outline" placeholder="Enter your email address" type="email"/>
+<button class="px-10 py-4 bg-on-surface text-inverse-on-surface rounded-full font-label-md text-label-md uppercase tracking-widest hover:bg-primary transition-colors">Subscribe</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex justify-between items-center bg-surface-container-highest/60 backdrop-blur-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-[92%] max-w-md rounded-full px-6 py-3">
+<a class="flex flex-col items-center justify-center text-primary relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-primary after:rounded-full" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline hover:text-primary-fixed-dim transition-all active:scale-95 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-md text-label-md">Shop</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline hover:text-primary-fixed-dim transition-all active:scale-95 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline hover:text-primary-fixed-dim transition-all active:scale-95 duration-200 ease-out" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-label-md text-label-md">Cart</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-lowest py-section-gap px-margin-mobile md:px-margin-desktop border-t border-outline-variant">
+<div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="space-y-6">
+<h2 class="font-display-lg text-headline-md text-on-surface tracking-widest uppercase">LUMINA</h2>
+<p class="max-w-xs font-body-sm text-body-sm text-on-surface-variant">Defining the standard of excellence through technological innovation and timeless aesthetics since 2024.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">language</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">share</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer">mail</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div class="space-y-4">
+<p class="font-label-md text-label-md text-on-surface font-bold uppercase">Collections</p>
+<ul class="space-y-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="hover:text-primary cursor-pointer transition-colors">Core Series</li>
+<li class="hover:text-primary cursor-pointer transition-colors">Elite Chronos</li>
+<li class="hover:text-primary cursor-pointer transition-colors">Limited Heritage</li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="font-label-md text-label-md text-on-surface font-bold uppercase">Legal</p>
+<ul class="space-y-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="hover:text-primary cursor-pointer transition-colors">Privacy Policy</li>
+<li class="hover:text-primary cursor-pointer transition-colors">Terms of Service</li>
+<li class="hover:text-primary cursor-pointer transition-colors">Cookie Policy</li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="font-label-md text-label-md text-on-surface font-bold uppercase">Support</p>
+<ul class="space-y-2 font-body-sm text-body-sm text-on-surface-variant">
+<li class="hover:text-primary cursor-pointer transition-colors">Concierge</li>
+<li class="hover:text-primary cursor-pointer transition-colors">Shipping</li>
+<li class="hover:text-primary cursor-pointer transition-colors">Sustainability</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto mt-20 pt-8 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest">© 2024 LUMINA LUXURY. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8">
+<span class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface cursor-pointer">Heritage</span>
+<span class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface cursor-pointer">Press</span>
+<span class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface cursor-pointer">Boutiques</span>
+</div>
+</div>
+</footer>
+<script>
+        // Smooth scroll interaction for the carousel arrows
+        const carousel = document.querySelector('.custom-scrollbar');
+        const nextBtn = document.querySelectorAll('button')[2]; // Simplistic selector for demo
+        const prevBtn = document.querySelectorAll('button')[1];
+
+        // Micro-interaction for hero image movement
+        const heroSection = document.querySelector('section');
+        const heroImage = document.querySelector('img[data-alt*="wristwatch"]');
+
+        heroSection.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+            heroImage.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg) scale(1.05)`;
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            heroImage.style.transform = `rotateY(0deg) rotateX(0deg) scale(1)`;
+        });
+    </script>
+</body></html>
